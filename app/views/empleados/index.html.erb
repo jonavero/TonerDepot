@@ -1,0 +1,79 @@
+
+<nav class="sidebar-navigation">
+  <ul>
+    <%=link_to empleados_path do %>
+      <li class="active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+        <span class="tooltip">Lista de Empleados</span>
+      </li>
+    <%end %>
+
+    <%=link_to productos_path do %>
+      <li >
+        <i class="fa fa-folder-open " aria-hidden="true"></i>
+        <span class="tooltip">Lista de Productos </span>
+      </li>
+    <%end %>
+
+
+    <%=link_to empleados_path do %>
+      <li >
+        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+        <span class="tooltip">Lista de Usuarios </span>
+      </li>
+    <%end %>
+
+    <%=link_to empleados_path do %>
+      <li >
+        <i class="fa fa-pie-chart" aria-hidden="true"></i>
+        <span class="tooltip">Reportes </span>
+      </li>
+    <%end %>
+  </ul>
+</nav>
+
+<% if @empleados.empty? %>
+  <h2>No hay empleado registrado aun....<%= link_to 'Nuevo Empleado',newEmpleado_path, class: "btn btn-primary" %> </h2>
+
+
+
+  <%else %>
+<div class="empleadotab">
+<table class="ui very basic collapsing celled table ">
+  <thead>
+  <tr>
+    <th>Empleados</th>
+    <th>Codigo Empleado</th>
+    <th>Accion</th>
+    <th colspan="3"><%= link_to 'Nuevo Empleado',newEmpleado_path, class: "btn btn-primary" %></th>
+  </tr></thead>
+  <tbody>
+  <%@empleados.each do |e| %>
+  <tr>
+    <td>
+      <h4 class="ui image header">
+
+        <div class="content">
+          <%=e.Nombre %> <%=e.Apellido %>
+          <div class="sub header">
+           <span class="cursiva"> <%=e.Puesto %> </span>
+          </div>
+
+          <%=e.Departamento %>
+        </div>
+      </h4></td>
+    <td>
+      <%=e.CodigoEmpleado %>
+    </td>
+    <td colspan="3">
+
+      <%= link_to 'Editar',editEmpleado_path(e), class: "btn btn-warning" %>
+      <%= link_to 'Eliminar', { action: :destroy, id: e.id }, method: :delete, class: "btn btn-danger",data: {confirm: "Esta seguro de eliminar este empleado"} %>
+    </td>
+  </tr>
+    <%end %>
+  </tbody>
+</table>
+</div>
+<%end %>
+

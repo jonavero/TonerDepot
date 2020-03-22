@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Serial: MyString
+  Descripcion: MyString
+  Marca: MyString
+  Modelo: MyString
+  Area: MyString
+
+two:
+  Serial: MyString
+  Descripcion: MyString
+  Marca: MyString
+  Modelo: MyString
+  Area: MyString

@@ -1,0 +1,73 @@
+
+<nav class="sidebar-navigation">
+  <ul>
+    <%=link_to empleados_path do %>
+      <li class="active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+        <span class="tooltip">Lista de Empleados</span>
+      </li>
+    <%end %>
+
+    <%=link_to productos_path do %>
+      <li >
+        <i class="fa fa-folder-open " aria-hidden="true"></i>
+        <span class="tooltip">Lista de Productos </span>
+      </li>
+    <%end %>
+
+
+    <%=link_to empleados_path do %>
+      <li >
+        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+        <span class="tooltip">Lista de Usuarios </span>
+      </li>
+    <%end %>
+
+    <%=link_to empleados_path do %>
+      <li >
+        <i class="fa fa-pie-chart" aria-hidden="true"></i>
+        <span class="tooltip">Reportes </span>
+      </li>
+    <%end %>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="registro">
+
+    <h1 class="to">Actualizar Empleado</h1>
+
+    <%= form_for  @empleado, url: updateEmpleado_path(@empleado) do |f| %>
+      <% if @empleado.errors.any? %>
+        <div id="errorExplanation">
+          <ul>
+            <% @empleado.errors.full_messages.each do |msg| %>
+              <li  class="alert alert-danger" role="alert" ><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="control-group error">
+        <div class="controls ">
+          <%= f.text_field :CodigoEmpleado, :placeholder => 'Codigo Empleado',:class=>"form-control inputt",disabled: true%>
+        </div>
+        <div class="controls">
+          <%= f.text_field :Nombre , :placeholder => 'Nombre',:class=>"form-control inputt"%>
+        </div>
+        <div class="controls">
+          <%= f.text_field :Apellido, :placeholder => 'Apellido',:class=>"form-control inputt"%>
+        </div>
+        <div>
+          <%= f.text_field :Departamento, :placeholder => 'Departamento',:class=>"form-control inputt" %>
+
+        </div>
+        <div>
+          <%= f.text_field :Puesto, :placeholder => 'Puesto',:class=>"form-control inputt" %>
+
+        </div>
+      </div>
+      <div class="actions"><%= f.submit 'Enviar', :class=>'btn btn-success btn2' %></div>
+    <% end %>
+  </div>
+</div>
+

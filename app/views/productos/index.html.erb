@@ -1,0 +1,87 @@
+
+<nav class="sidebar-navigation">
+  <ul>
+    <%=link_to empleados_path do %>
+      <li >
+        <i class="fa fa-users" aria-hidden="true"></i>
+        <span class="tooltip">Lista de Empleados</span>
+      </li>
+    <%end %>
+
+    <%=link_to productos_path do %>
+      <li class="active" >
+        <i class="fa fa-folder-open " aria-hidden="true"></i>
+        <span class="tooltip">Lista de Productos </span>
+      </li>
+    <%end %>
+
+
+    <%=link_to empleados_path do %>
+      <li >
+        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+        <span class="tooltip">Lista de Usuarios </span>
+      </li>
+    <%end %>
+
+    <%=link_to empleados_path do %>
+      <li >
+        <i class="fa fa-pie-chart" aria-hidden="true"></i>
+        <span class="tooltip">Reportes </span>
+      </li>
+    <%end %>
+  </ul>
+</nav>
+
+<% if @productos.empty? %>
+  <h2>No hay produtos registrado aun....<%= link_to 'Nuevo Producto',newProducto_path, class: "btn btn-primary" %> </h2>
+
+
+
+<%else %>
+  <div class="empleadotab">
+    <table class="ui very basic collapsing celled table ">
+      <thead>
+      <tr>
+        <th>Productos</th>
+        <th>Serial</th>
+        <th>Accion</th>
+        <th colspan="3"><%= link_to 'Nuevo Producto',newProducto_path, class: "btn btn-primary" %></th>
+      </tr></thead>
+      <tbody>
+      <%@productos.each do |e| %>
+        <tr>
+          <td>
+            <h4 class="ui image header">
+
+              <div class="content">
+                <%=e.Descripcion %> <%=e.Marca %>
+                <div class="sub header">
+                  <span class="cursiva"> <%=e.Modelo %> </span>
+                </div>
+
+                <%=e.Area %>
+              </div>
+            </h4></td>
+          <td>
+            <%=e.Serial %>
+          </td>
+          <td colspan="3">
+
+            <%= link_to 'Editar',editProducto_path(e), class: "btn btn-warning" %>
+            <%= link_to 'Eliminar', { action: :destroy, id: e.id }, method: :delete, class: "btn btn-danger",data: {confirm: "Esta seguro de eliminar este producto"} %>
+          </td>
+        </tr>
+      <%end %>
+      </tbody>
+    </table>
+  </div>
+<%end %>
+
+<%if flash[:notice]%>
+  <div class="alert alert-info" style="float: right; margin-right: 500px">
+
+    <p><%= flash[:notice]%></p>
+
+  </div>
+<%end %>
+

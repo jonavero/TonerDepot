@@ -1,4 +1,5 @@
 
+
 <nav class="sidebar-navigation">
   <ul>
     <%=link_to empleados_path do %>
@@ -31,6 +32,14 @@
     <%end %>
   </ul>
 </nav>
+
+<header>
+  <div class="perfil">
+    <p class="parrafo"><strong>Bienvenido :  </strong><%=current_user.userCompleto%></p>
+    <span> <%=link_to 'Cerrar sesion',  logout_path, method: :delete,class: 'link' %></span>
+
+  </div>
+</header>
 
 <% if @empleados.empty? %>
   <h2>No hay empleado registrado aun....<%= link_to 'Nuevo Empleado',newEmpleado_path, class: "btn btn-primary" %> </h2>
@@ -77,3 +86,26 @@
 </div>
 <%end %>
 
+<%if flash[:notice]%>
+  <div class="alert alert-info" style="float: right; margin-right: 500px">
+
+    <p><%= flash[:notice]%></p>
+
+  </div>
+<%end %>
+
+<%if flash[:notice2]%>
+  <div class="alert alert-success" style="float: right; margin-right: 500px">
+
+    <p><%= flash[:notice2]%></p>
+
+  </div>
+<%end %>
+
+<%if flash[:notice3]%>
+  <div class="alert alert-success" style="float: right; margin-right: 500px">
+
+    <p><%= flash[:notice3]%></p>
+
+  </div>
+<%end %>

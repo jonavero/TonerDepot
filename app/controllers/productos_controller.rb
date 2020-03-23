@@ -1,4 +1,5 @@
 class ProductosController < ApplicationController
+  before_action :requiere_usuario_admin, only: [:index,:show, :edit,:update,:create,:new]
 
   def index
     @productos = Producto.all

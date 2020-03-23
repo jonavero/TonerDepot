@@ -1,0 +1,29 @@
+<div class="contenedorLogin">
+  <div class="formularioLogin">
+
+    <%= form_tag '/login' , class:'cont' do%>
+
+
+      <p class="to">Toner Deport</p>
+      <p class="to1">Iniciar sesion </p>
+      <div class="inputCont">
+        <%= text_field_tag :Correo, nil,placeholder: 'Usuario',:class=>'form-control inputLogin' %>
+        <%= password_field_tag :password,nil, :placeholder => 'Password',:class=>'form-control inputLogin'%>
+        <%= submit_tag 'Entrar' ,class: 'btn-login'%>
+    <%end%>
+    <%=link_to 'Pedir Acceso...'%>
+    </div>
+
+
+    <%if flash[:alert]%>
+      <div class="alerta2 alert alert-danger" style="margin-left: 10px;margin-right: 10px;font-weight: bold">
+
+        <p><%=flash[:alert]%></p>
+    <%end%>
+    </div>
+
+  </div>
+</div>
+
+
+

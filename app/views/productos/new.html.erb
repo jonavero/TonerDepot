@@ -31,6 +31,14 @@
   </ul>
 </nav>
 
+<header>
+  <div class="perfil">
+    <p class="parrafo"><strong>Bienvenido :  </strong><%=current_user.userCompleto%></p>
+    <span> <%=link_to 'Cerrar sesion',  logout_path, method: :delete,class: 'link' %></span>
+
+  </div>
+</header>
+
 <div class="container">
   <div class="registro">
 

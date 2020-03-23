@@ -16,4 +16,11 @@ Rails.application.routes.draw do
   delete 'producto/:id' => 'productos#destroy', as: :deleteProducto
   get 'producto/:id/edit' => 'productos#edit', as: :editProducto
   patch 'producto/:id/update' => 'productos#update', as: :updateProducto
+
+  #Ruta de Sessiones
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
+
+  root 'sessions#new'
 end

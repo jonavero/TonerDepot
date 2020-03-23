@@ -120,3 +120,95 @@ $tooltip-background-color: $sidebar-background-color;
   font-style: italic;
   color: #730E15;
 }
+
+header .perfil{
+margin-left: 75%;
+}
+
+//style para el login
+
+.contenedorLogin{
+  background-color: rgb(229,229,229);
+  height: 520px;
+
+
+}
+
+.formularioLogin{
+
+  background-color: white;
+
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+
+  border-collapse: collapse;
+  margin-top:170px;
+}
+
+.to{
+  color: #707070;
+  font-size: 20px;
+  //background-color: #707070;
+  height: 60px;
+  padding-top: 20px;
+
+
+}
+
+.to1{
+  color: #707070;
+  font-size: 14px;
+  margin-top: -20px;
+}
+
+input{
+
+  width: 300px;
+  height:45px;
+  padding: 10px 0;
+  margin:20px 0;
+  appearance: none;
+  box-shadow: none;
+
+
+}
+
+.inputLogin{
+  margin-top: 25px;
+  width: 80%;
+  height: 50px;
+  margin-left: 35px;
+
+}
+.inputCont{
+  margin-top: 50px;
+}
+
+
+
+
+.btn-login{
+
+  width: 150px;
+  height:40px;
+
+  background-color:#707070 ;
+  color: #fff;
+
+  border-style:none;
+
+}
+
+
+::-webkit-input-placeholder{
+
+  padding-left:10px;
+
+}

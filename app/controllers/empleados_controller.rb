@@ -1,5 +1,5 @@
 class EmpleadosController < ApplicationController
-
+  before_action :requiere_usuario_admin, only: [:index,:show, :edit,:update,:create,:new]
   def index
     @empleados = Empleado.all
   end
@@ -29,7 +29,7 @@ class EmpleadosController < ApplicationController
   def create
     @empleado = Empleado.new(params_empleado)
     if @empleado.save
-      redirect_to '/empleados', flash: {notice: 'Empleado creado exitosamente'}
+      redirect_to '/empleados', flash: {notice2: 'Empleado creado exitosamente'}
     else
       render 'new'
     end
@@ -38,7 +38,7 @@ class EmpleadosController < ApplicationController
   def destroy
     @empleado = Empleado.find(params[:id])
     if @empleado.destroy
-      redirect_to '/empleados',flash: { notice: 'Empleado eliminado correctamente '}
+      redirect_to '/empleados',flash: { notice3: 'Empleado eliminado correctamente '}
     else
       redirect_to '/empleados',flash: { notice: 'Empleado no pudo ser eliminado'}
     end

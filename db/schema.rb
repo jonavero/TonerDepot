@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_203220) do
+ActiveRecord::Schema.define(version: 2020_03_23_150957) do
 
   create_table "empleados", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "CodigoEmpleado"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2020_03_21_203220) do
     t.string "Area"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "userCompleto"
+    t.string "Correo"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "Tipo"
+    t.string "Activo", default: "S"
   end
 
 end

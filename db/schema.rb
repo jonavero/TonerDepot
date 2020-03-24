@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_150957) do
+ActiveRecord::Schema.define(version: 2020_03_23_204236) do
 
   create_table "empleados", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "CodigoEmpleado"
@@ -32,6 +32,26 @@ ActiveRecord::Schema.define(version: 2020_03_23_150957) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "transferencia_cabs", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "empleados_id", null: false
+    t.string "Servicio"
+    t.string "Estatus", default: "Abierto"
+    t.string "Tiempo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["empleados_id"], name: "index_transferencia_cabs_on_empleados_id"
+  end
+
+  create_table "transferenica_dets", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.integer "TransferenciaCab_id"
+    t.string "Servicio"
+    t.integer "producto_id"
+    t.string "Estatus", default: "Abierto"
+    t.string "Tiempo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "userCompleto"
     t.string "Correo"
@@ -42,4 +62,5 @@ ActiveRecord::Schema.define(version: 2020_03_23_150957) do
     t.string "Activo", default: "S"
   end
 
+  add_foreign_key "transferencia_cabs", "empleados", column: "empleados_id"
 end

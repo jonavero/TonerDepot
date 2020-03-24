@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  TransferenciaCab: one
+  Servicio: MyString
+  Producto: one
+  Estatus: MyString
+  Tiempo: MyString
+
+two:
+  TransferenciaCab: two
+  Servicio: MyString
+  Producto: two
+  Estatus: MyString
+  Tiempo: MyString

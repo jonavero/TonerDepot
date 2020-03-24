@@ -22,5 +22,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+  #Manejo de la Cabecera para Transaccion
+  get '/transferencia' => 'transferencia_cabs#new'
+
   root 'sessions#new'
 end

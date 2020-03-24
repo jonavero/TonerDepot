@@ -136,7 +136,6 @@ margin-left: 75%;
 
 .formularioLogin{
 
-  background-color: white;
 
   top: 0%;
   bottom: 0%;
@@ -153,22 +152,26 @@ margin-left: 75%;
 }
 
 .to{
+  font-family: 'Bahnschrift SemiBold';
   color: #707070;
   font-size: 20px;
   //background-color: #707070;
   height: 60px;
   padding-top: 20px;
+  font-weight: 600;
 
 
 }
 
 .to1{
+  font-family: 'Bahnschrift Regular' ;
   color: #707070;
   font-size: 14px;
   margin-top: -20px;
 }
 
 input{
+
 
   width: 300px;
   height:45px;
@@ -181,14 +184,14 @@ input{
 }
 
 .inputLogin{
-  margin-top: 25px;
+  margin-top: 5px;
   width: 80%;
-  height: 50px;
+  height: 40px;
   margin-left: 35px;
 
 }
 .inputCont{
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 
@@ -198,7 +201,7 @@ input{
 
   width: 150px;
   height:40px;
-
+  border-radius: 10px;
   background-color:#707070 ;
   color: #fff;
 
@@ -211,4 +214,169 @@ input{
 
   padding-left:10px;
 
+}
+
+.label1{
+color:#707070 ;
+margin-right: 270px;
+}
+.label2{
+  color:#707070 ;
+  margin-right: 250px;
+}
+
+//style para transferencia cabecera
+.inputcab{
+  margin-top: 5px;
+  width: 85%;
+  height: 50px;
+  margin-left: 35px;
+  font-size: 24px;
+
+}
+
+
+
+.contenedorCab{
+  background-color: rgb(229,229,229);
+  height: 520px;
+
+
+}
+
+.formularioCab{
+
+
+  top: -20%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+
+  border-collapse: collapse;
+  margin-top:170px;
+}
+
+.toCab{
+  font-family: 'Bahnschrift SemiBold';
+  color: #707070;
+  font-size: 24px;
+  //background-color: #707070;
+  height: 60px;
+  padding-top: 20px;
+  font-weight: 600;
+
+
+}
+
+.toCab1{
+  font-family: 'Bahnschrift Regular' ;
+  color: #707070;
+  font-size: 16px;
+  margin-top: -20px;
+}
+
+input{
+
+
+  width: 300px;
+  height:65px;
+  padding: 10px 0;
+  margin:20px 0;
+  appearance: none;
+  box-shadow: none;
+
+
+}
+
+
+.inputCont{
+  margin-top: 30px;
+}
+
+.inputCont input.placeholder{
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+  opacity: 1;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;
+  opacity: 1;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;
+
+}
+
+:-ms-input-placeholder {
+  text-align: center;
+
+}
+
+
+.btnCab{
+
+  width: 50px;
+  height: 60px;
+  border-radius: 8px;
+  background-color:white ;
+  color: #707070;
+ padding: 16px 32px;
+  margin: 6px 4px;
+ font-size: 22px;
+  border-style: groove;
+  border-color: #707070 ;
+  cursor: pointer;
+ text-align: center;
+}
+
+.numeros{
+
+}
+
+
+::-webkit-input-placeholder{
+
+  padding-left:10px;
+
+}
+
+.btn-cab{
+
+  width: 150px;
+  height:40px;
+  border-radius: 8px;
+  background-color:white ;
+  color: #707070;
+  font-size: 20px;
+  border-style: inset;
+  border-color: #707070 ;
+  padding: 10px 10px 10px 10px;
+
+
+
+}
+
+.inputWithIcon input{
+  position: relative;
+}
+
+.inputWithIcon i{
+  position: absolute;
+  left: 60PX;
+  top: 10px;
+  padding: 9px 8px;
+  color: #707070;
+  font-size: 14px;
+  width: 10px;
+  height: 5px;
 }

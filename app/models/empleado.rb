@@ -1,4 +1,5 @@
 class Empleado < ApplicationRecord
+  has_many :transferencia_cabs
   validates :CodigoEmpleado, presence: {message: 'No puede dejarse Vacio'}
   validates :Nombre, presence: {message: 'No puede dejarse Vacio'}
   validates :Apellido, presence: {message: 'No puede dejarse Vacio'}

@@ -31,34 +31,21 @@
   </ul>
 </nav>
 
-<header>
+<header class="header-nav">
   <div class="perfil">
     <p class="parrafo"><strong>Bienvenido :  </strong><%=current_user.userCompleto%></p>
-    <span> <%=link_to 'Cerrar sesion',  logout_path, method: :delete,class: 'link' %></span>
-
+    <span class="perfil--close"> <%=link_to 'Cerrar sesion',  logout_path, method: :delete,class: 'link' %></span>
   </div>
 </header>
 
-<div class="container">
-  <div class="registro">
-
-    <h1 class="to">Registro de Nuevo Empleado</h1>
+<div class="container container--newEmpl">
+  <div class="mt-5 registro">
+    <h1 class="title-h1">Registro de Nuevo Empleado</h1>
 
     <%= form_for  @empleado, url: new_empleado_path(@empleado) do |f| %>
-      <% if @empleado.errors.any? %>
-        <div id="errorExplanation">
-          <ul>
-            <% @empleado.errors.full_messages.each do |msg| %>
-              <li  class="alert alert-danger" role="alert" ><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      <div class="control-group error">
-        <div class="controls ">
-          <%= f.text_field :CodigoEmpleado, :placeholder => 'Codigo Empleado',:class=>"form-control inputt"%>
-        </div>
+      <div class="control-group error formNewEmpl mt-4">
         <div class="controls">
+          <%= f.text_field :CodigoEmpleado, :placeholder => 'Codigo Empleado',:class=>"form-control inputt"%>
           <%= f.text_field :Nombre , :placeholder => 'Nombre',:class=>"form-control inputt"%>
         </div>
         <div class="controls">
@@ -70,10 +57,20 @@
         </div>
         <div>
           <%= f.text_field :Puesto, :placeholder => 'Puesto',:class=>"form-control inputt" %>
-
         </div>
+        <div><%= f.submit 'Enviar', :class=>'btn btn-success' %></div>
       </div>
-      <div class="actions"><%= f.submit 'Enviar', :class=>'btn btn-success btn2' %></div>
+      <div>
+        <% if @empleado.errors.any? %>
+          <div id="errorExplanation">
+            <ul>
+              <% @empleado.errors.full_messages.each do |msg| %>
+                <li  class="alert alert-danger" role="alert" ><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

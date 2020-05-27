@@ -24,6 +24,9 @@ Rails.application.routes.draw do
 
   #Manejo de la Cabecera para Transaccion
   get '/transferencia' => 'transferencia_cabs#new'
+  get '/transferencianext' =>'transferencia_cabs#seleccion'
+  post '/transferencianext' => 'transferencia_cabs#create', as: :newTransferenciaCab
+  get '/Mensaje' => 'transferencia_cabs#mensaje'
 
   root 'sessions#new'
 end

@@ -1,3 +1,3 @@
 class TransferenciaCab < ApplicationRecord
-  belongs_to :empleado
+#  belongs_to :empleado
 end

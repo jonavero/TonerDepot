@@ -32,19 +32,18 @@
   </ul>
 </nav>
 
-<header>
+<header class="header-nav">
   <div class="perfil">
     <p class="parrafo"><strong>Bienvenido :  </strong><%=current_user.userCompleto%></p>
-    <span> <%=link_to 'Cerrar sesion',  logout_path, method: :delete,class: 'link' %></span>
-
+    <span class="perfil--close"> <%=link_to 'Cerrar sesion',  logout_path, method: :delete,class: 'link' %></span>
   </div>
 </header>
 
 
-<div class="container">
-  <div class="registro">
+<div class="container container--newEmpl">
+  <div class="mt-5 registro">
 
-    <h1 class="to">Actualizar Producto</h1>
+    <h1 class="title-h1">Actualizar Producto</h1>
 
     <%= form_for  @producto, url: updateProducto_path(@producto) do |f| %>
       <% if @producto.errors.any? %>
@@ -56,11 +55,9 @@
           </ul>
         </div>
       <% end %>
-      <div class="control-group error">
+      <div class="control-group error formNewEmpl mt-4">
         <div class="controls ">
           <%= f.text_field :Serial, :placeholder => 'Serial',:class=>"form-control inputt",disabled: true%>
-        </div>
-        <div class="controls">
           <%= f.text_field :Descripcion , :placeholder => 'Descripcion',:class=>"form-control inputt"%>
         </div>
         <div class="controls">
@@ -74,8 +71,8 @@
           <%= f.text_field :Area, :placeholder => 'Area',:class=>"form-control inputt" %>
 
         </div>
+        <div class="actions"><%= f.submit 'Enviar', :class=>'btn btn-success btn2' %></div>
       </div>
-      <div class="actions"><%= f.submit 'Enviar', :class=>'btn btn-success btn2' %></div>
     <% end %>
   </div>
 </div>

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if user.Tipo =='admin'
         redirect_to '/empleados'
       else
-
+        redirect_to login_path,flash: {alert: "No tiene permiso para realizar esta accion"}
       end
     else
       redirect_to login_path , flash: {alert: "Contrasena o usuario invalido"}

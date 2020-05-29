@@ -21,13 +21,29 @@ class TransferenciaCabsController < ApplicationController
   end
 
   def create
-    @empleado =Empleado.find_by_CodigoEmpleado(params[:codigo])
-    @cabeceraTrans = TransferenciaCab.new(params_cabecera)
-    if @cabeceraTrans.save
-      redirect_to '/Mensaje'
-    else
-      render 'seleccion'
+
+
+    if params[:commit] =='Recibir Ruta de Soporte Correctivo'
+      params[:Servicio] ='Recibir Ruta de Soporte Correctivo'
+      @empleado =Empleado.find_by_CodigoEmpleado(params[:codigo])
+      @cabeceraTrans = TransferenciaCab.new(params_cabecera )
+      if @cabeceraTrans.save
+        redirect_to '/Mensaje'
+      else
+        render 'seleccion'
+      end
+    elsif  params[:commit] =='Recibir Ruta de Mantenimiento Preventivo'
+      params[:Servicio] ='Recibir Ruta de Mantenimiento Preventivo'
+      @empleado =Empleado.find_by_CodigoEmpleado(params[:codigo])
+      @cabeceraTrans = TransferenciaCab.new(params_cabecera)
+      if @cabeceraTrans.save
+        redirect_to '/Mensaje'
+      else
+        render 'seleccion'
+      end
     end
+
+
   end
 
   private

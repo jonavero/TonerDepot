@@ -6,10 +6,12 @@
     <p class="toCab1">Seleccione el Servicio </p>
 
   <%= form_for  @cabeceraTrans, url: newTransferenciaCab_path(@cabeceraTrans) do |f| %>
-      <%= f.text_field :empleados_id, :value =>@empleado.id%>
-      <%= f.text_field :Servicio%>
-      <%= f.text_field :Tiempo%>
-      <%=f.submit 'Enviar' %>
+
+      <%=f.hidden_field :empleados_id, value: @empleado.id %>
+      <%=f.hidden_field :Servicio%>
+      <%=f.hidden_field :Tiempo, value: '0'  %>
+      <%=f.submit 'Recibir Ruta de Soporte Correctivo' %>
+      <%=f.submit 'Recibir Ruta de Mantenimiento Preventivo' %>
   <%end %>
 
 

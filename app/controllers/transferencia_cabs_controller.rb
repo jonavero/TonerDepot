@@ -48,6 +48,6 @@ class TransferenciaCabsController < ApplicationController
 
   private
   def params_cabecera
-    params.require(:transferencia_cab).permit(:empleados_id,:Servicio, :Tiempo)
+    params.require(:transferencia_cab).permit(:empleados_id,:empleado_id,:Servicio, :Tiempo)
   end
 end

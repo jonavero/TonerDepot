@@ -8,7 +8,8 @@
   <%= form_for  @cabeceraTrans, url: newTransferenciaCab_path(@cabeceraTrans) do |f| %>
 
       <%=f.hidden_field :empleados_id, value: @empleado.id %>
-      <%=f.hidden_field :Servicio%>
+      <%=f.hidden_field :empleado_id, value: @empleado.id %>
+      <%=f.hidden_field :Servicio, value: 'Recibir Ruta de Soporte Correctivo'%>
       <%=f.hidden_field :Tiempo, value: '0'  %>
       <%=f.submit 'Recibir Ruta de Soporte Correctivo' %>
       <%=f.submit 'Recibir Ruta de Mantenimiento Preventivo' %>

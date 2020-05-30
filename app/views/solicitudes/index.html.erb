@@ -1,0 +1,108 @@
+
+<nav class="sidebar-navigation">
+  <ul>
+    <%=link_to empleados_path do %>
+      <li >
+        <i class="fa fa-users" aria-hidden="true"></i>
+        <span class="tooltip">Lista de Empleados</span>
+      </li>
+    <%end %>
+
+    <%=link_to productos_path do %>
+      <li class="active" >
+        <i class="fa fa-folder-open " aria-hidden="true"></i>
+        <span class="tooltip">Lista de Productos </span>
+      </li>
+    <%end %>
+
+
+    <%=link_to listadesolicitudes_path do %>
+      <li >
+        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+        <span class="tooltip">Lista de solicitudes </span>
+      </li>
+    <%end %>
+
+    <%=link_to empleados_path do %>
+      <li >
+        <i class="fa fa-pie-chart" aria-hidden="true"></i>
+        <span class="tooltip">Reportes </span>
+      </li>
+    <%end %>
+  </ul>
+</nav>
+
+<header class="header-nav">
+  <div class="perfil">
+    <p class="parrafo"><strong>Bienvenido :  </strong><%=current_user.userCompleto%></p>
+    <span class="perfil--close"> <%=link_to 'Cerrar sesion',  logout_path, method: :delete,class: 'link' %></span>
+  </div>
+</header>
+
+
+<div class="container--box">
+  <header class="header-title">
+    <h1>Lista de Espera</h1>
+  </header>
+  <% if @solicitudes.empty? %>
+    <h2>No hay solicitudes registradas aun... </h2>
+
+
+
+  <%else %>
+    <div class="container--tableEmpl">
+
+      <table class="ui very basic collapsing celled table table--empl">
+        <thead>
+        <tr>
+          <th>Numero</th>
+          <th>Nombre Empleado</th>
+          <th>Servicio</th>
+          <th>Seleccion</th>
+          <th>Accion</th>
+        </tr></thead>
+        <tbody>
+        <%@solicitudes.each do |e| %>
+          <tr>
+            <td><%=e.id %></td>
+            <td><%=e.empleado.Nombre%></td>
+            <td><%=e.Servicio %></td>
+            <td>
+              <%= form_for  @solicitud, url: updateTransferencia_path(@solicitud) do |f| %>
+              <%= f.select :Estatus, options_for_select([["Seleccionar", ""], "Almacen", "Despachar"])  %>
+            </td>
+            <td colspan="3">
+              <%= f.submit 'Aceptar', class: "btn btn-warning" %>
+              <%end %>
+              <%= link_to 'Descartar', { action: :destroy, id: e.id }, method: :delete, class: "btn btn-danger",data: {confirm: "Esta seguro de eliminar esta solicitud"} %>
+            </td>
+          </tr>
+        <%end %>
+        </tbody>
+      </table>
+    </div>
+  <%end %>
+</div>
+<%if flash[:notice]%>
+  <div class="alert alert-info" style="float: right; margin-right: 500px">
+
+    <p><%= flash[:notice]%></p>
+
+  </div>
+<%end %>
+
+<%if flash[:notice2]%>
+  <div class="alert alert-success" style="float: right; margin-right: 500px">
+
+    <p><%= flash[:notice2]%></p>
+
+  </div>
+<%end %>
+
+<%if flash[:notice3]%>
+  <div class="alert alert-success" style="float: right; margin-right: 500px">
+
+    <p><%= flash[:notice3]%></p>
+
+  </div>
+<%end %>

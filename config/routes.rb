@@ -28,5 +28,10 @@ Rails.application.routes.draw do
   post '/transferencianext' => 'transferencia_cabs#create', as: :newTransferenciaCab
   get '/Mensaje' => 'transferencia_cabs#mensaje'
 
+  #Solicitudes
+  get '/listadesolicitudes' => 'solicitudes#index'
+  delete 'solicitud/:id' => 'solicitudes#destroy'
+  patch '/transferenciaUpdate' => 'solicitudes#update', as: :updateTransferencia
+
   root 'sessions#new'
 end
